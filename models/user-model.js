@@ -34,7 +34,7 @@ module.exports= {
 	},
 	getAllproduct : function(callback){
 		var sql = "SELECT * FROM `product` where pid=?";
-		db.getResults(sql,[1],function(results){
+		db.getResults(sql,[3],function(results){
 			
 			if(results.length > 0){
 				callback(results);
@@ -125,9 +125,20 @@ module.exports= {
 	},
 
 
-	delete: function(id, callback){
+	delete: function(uid, callback){
 		var sql = "delete from users where uid=?";
-		db.execute(sql, [id], function(status){
+		db.execute(sql, [uid], function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+	
+	deleteproduct: function(pid, callback){
+		var sql = "delete from product where pid=?";
+		db.execute(sql, [pid], function(status){
 			if(status){
 				callback(true);
 			}else{

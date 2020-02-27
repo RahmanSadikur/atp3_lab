@@ -44,8 +44,8 @@ router.get('/product/edit/:id', function(req, res){
 });
 
 router.get('/product/delete/:id', function(req, res){
-	userModel.delete(req.params.id, function(result){
-		res.render('homeadmin/view_users', {user: result});
+	userModel.deleteproduct(req.params.id, function(result){
+		res.redirect('/admin');
 	});
 });
 router.get('/edit/:id', function(req, res){
@@ -56,7 +56,8 @@ router.get('/edit/:id', function(req, res){
 
 router.get('/delete/:id', function(req, res){
 	userModel.delete(req.params.id, function(result){
-		res.render('homeadmin/view_users', {user: result});
+		// res.render('homeadmin/view_users', {userlist: result});
+		res.redirect('/admin');
 	});
 });
 
@@ -163,7 +164,7 @@ router.post('/product/edit/:id', function(req, res){
 			}
 		});
 });
-router.post('/:id', function(req, res){
+router.post('/', function(req, res){
 	
 	var user = {
 		uid: req.body.uid,
@@ -179,6 +180,7 @@ router.post('/:id', function(req, res){
 
 		userModel.update(user, function(status){
 			if(status){
+				console.log(status);
 				res.redirect('/admin');
 			}else{
 				res.send('error');
