@@ -21,7 +21,7 @@ router.get('/view_products', function(req, res){
 	
 		userModel.getAllproduct(function(results){
 			if(results.length > 0){
-				res.render('homeadmin/view_products', {userlist: results});
+				res.render('homeadmin/view_products', {productlist: results});
 			}else{
 				res.redirect('/admin');
 			}
@@ -55,6 +55,11 @@ router.get('/adduser', function(req, res){
 		res.render('homeadmin/new');
 	
 });
+router.get('/addproduct', function(req, res){
+	
+	res.render('homeadmin/addproduct');
+
+});
 router.post('/adduser', function(req, res){
 	var user = {
 		uid: req.body.uid,
@@ -64,7 +69,7 @@ router.post('/adduser', function(req, res){
 		gender: req.body.gender,
 		username: req.body.username,
 		password: req.body.password,
-		Utid: req.body.utid,
+		utid: req.body.utid,
 		
 	};
 	userModel.insert(user, function(status){
@@ -77,6 +82,30 @@ router.post('/adduser', function(req, res){
 		});
 
 	});	
+
+	router.post('/addproduct', function(req, res){
+		var product = {
+			pid: req.body.pid,
+			pname: req.body.pname,
+			psize: req.body.psize,
+			pquantity: req.body.pquantity,
+			image: req.body.image,
+			pdescription: req.body.pdescription,
+			price: req.body.price,
+			catagory: req.body.catagory,
+			
+		};
+		userModel.insertproduct(product, function(status){
+		
+				if(status){
+					res.redirect('/admin/view_products');
+				}else{
+					res.redirect('/admin');
+				}
+			});
+	
+		});	
+	
 
 
 

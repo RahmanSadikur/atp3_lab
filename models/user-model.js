@@ -66,8 +66,8 @@ module.exports= {
 	},
 	insert: function(user, callback){
 		console.log(user.name+user.phone+ user.email+user.gender+user.username+user.password+user.utid);
-		var sql = "insert into users values(?,?,?,?,?,?,?)";
-		db.execute(sql, [user.name,user.phone,user.email,user.gender,user.username,user.password,user.utid], function(status){
+		var sql = "insert into users values(?,?,?,?,?,?,?,?)";
+		db.execute(sql, [null,user.name,user.phone,user.email,user.gender,user.username,user.password,2], function(status){
 			if(status){
 				console.log(status);
 				callback(true);
@@ -76,8 +76,23 @@ module.exports= {
 			}
 		});
 	},
+
+	insertproduct: function(user, callback){
+		//console.log(user.name+user.phone+ user.email+user.gender+user.username+user.password+user.utid);
+		var sql = "insert into product values(?,?,?,?,?,?,?,?)";
+		db.execute(sql, [null,user.pname,user.psize,user.pquantity,user.image,user.pdescription,user.price,user.catagory], function(status){
+			if(status){
+				console.log(status);
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+
+
 	update : function(user, callback){
-		var sql = "update users set name=?,phone=?,email=?,gender=? username=?, password=? where uid=?";
+		var sql = "update users set name=?,phone=?,email=?,gender=?,username=?, password=? where uid=?";
 		db.execute(sql, [user.name,user.phone,user.email,user.gender,user.username,user.password,user.uid], function(status){
 			if(status){
 				callback(true);
@@ -86,6 +101,18 @@ module.exports= {
 			}
 		});
 	},
+	updateproduct : function(user, callback){
+		var sql = "update product set pname=?,psize=?,pquantity=?,image=?,pdescription=?, price=?,catagory=? where pid=?";
+		db.execute(sql, [user.pname,user.psize,user.pquantity,user.image,user.pdescription,user.price,user.catagory,user.pid], function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+
+
 	delete: function(id, callback){
 		var sql = "delete from users where uid=?";
 		db.execute(sql, [id], function(status){

@@ -3,6 +3,7 @@ var express = require('express');
 var login = require('./controllers/login');
 var admin = require('./controllers/admin');
 var product = require('./controllers/product');
+var register = require('./controllers/register');
 var customer = require('./controllers/customer');
 var logout = require('./controllers/logout');
 var ejs = require('ejs');
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.use('/login', login);
+app.use('/register', register);
 app.use('/admin', admin);
 app.use('/customer', customer);
 app.use('/product', product);
