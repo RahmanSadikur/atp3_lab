@@ -12,9 +12,9 @@ module.exports= {
 		});
 	},
 
-	getproductById : function(uid, callback){
+	getproductById : function(id, callback){
 		var sql = "select * from product where pid=?";
-		db.getResults(sql, [uid], function(results){
+		db.getResults(sql, [id], function(results){
 			if(results.length > 0){
 				callback(results[0]);
 			}else{
@@ -33,8 +33,8 @@ module.exports= {
 		});
 	},
 	getAllproduct : function(callback){
-		var sql = "SELECT * FROM `product` where pid=?";
-		db.getResults(sql,[3],function(results){
+		var sql = "SELECT * FROM `product` where catagory=?";
+		db.getResults(sql,['male'],function(results){
 			
 			if(results.length > 0){
 				callback(results);
@@ -117,6 +117,7 @@ module.exports= {
 		var sql = "update product set pname=?,psize=?,pquantity=?,image=?,pdescription=?, price=?,catagory=? where pid=?";
 		db.execute(sql, [user.pname,user.psize,user.pquantity,user.image,user.pdescription,user.price,user.catagory,user.pid], function(status){
 			if(status){
+				console.log(status);
 				callback(true);
 			}else{
 				callback(false);
