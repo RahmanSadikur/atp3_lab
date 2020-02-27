@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="admin/style.css">
+</head>
+<body>
+	<div>
+			<h2>Welcome home, <%= user.username%></h2> 		
+	</div>
+
+	<a href="/admin/adduser">Create user</a> |
+	<a href="/admin/view_users">view users</a> |
+	<a href="/logout">Logout</a><br>
+	Username:  <%= user.username %> <br>
+	Id: <%= user.id %> <br>
+	Password: <%= user.password %> <br>
+	Type: <%= user.type %>
+</body>
+</html>
