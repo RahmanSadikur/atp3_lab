@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product List</title>
+</head>
+<body>
+	<div>
+			<h2>product List</h2> 		
+	</div>
+
+	<a href="/admin">Back</a>|
+	<a href="/logout">Logout</a><br>
+
+
+
+
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>Product Name</td>
+			<td>Product size</td>
+			<td>Quantities</td>
+			<td>Description</td>
+			<td>Price</td>
+			<td>Catagory</td>
+			<td>Image Src</td>
+		</tr>
+	<% for(var i=0; i < userlist.length; i++){ %>
+		<tr>
+			<td><%= productlist[i].pid %></td>
+			<td><%= productlist[i].pname  %></td>
+			<td><%= productlist[i].psize  %></td>
+			<td><%= productlist[i].pquantity  %></td>
+			<td><%= productlist[i].pdescription  %></td>
+			<td><%= productlist[i].price  %></td>
+			<td><%= productlist[i].catagory  %></td>
+			<td>
+				<a href="/admin/product/edit/<%= productlist[i].pid %>">EDIT</a> | 
+				<a href="/admin/product/delete/<%= userlist[i].pid %>">DELETE</a> 
+			</td>
+		</tr>
+	<%  } %>
+    </table>
+</body>
+</html>

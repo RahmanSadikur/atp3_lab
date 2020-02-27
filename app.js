@@ -30,7 +30,7 @@ app.use('/logout', logout);
 //routes
 app.get('/', function(req, res){
 	// res.send('Welcome');
-	res.redirect('/customer');
+	res.redirect('/login');
 });
 
 //server startup

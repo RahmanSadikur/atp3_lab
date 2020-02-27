@@ -14,9 +14,10 @@
 	<table border="1">
 		<tr>
 			<td>ID</td>
-			<td>Employee NAME</td>
-			<td>Company NAME</td>
-			<td>Contract No</td>
+			<td>NAME</td>
+			<td>Phone</td>
+			<td>Email</td>
+			<td>Gender</td>
 			<td>USERNAME</td>
 			<td>PASSWORD</td>
 			<td>TYPE</td>
@@ -24,16 +25,17 @@
 		</tr>
 	<% for(var i=0; i < userlist.length; i++){ %>
 		<tr>
-			<td><%= userlist[i].Eid %></td>
-			<td><%= userlist[i].Ename %></td>
-			<td><%= userlist[i].Cname %></td>
-			<td><%= userlist[i].ContractNo %></td>
+			<td><%= userlist[i].uid %></td>
+			<td><%= userlist[i].name %></td>
+			<td><%= userlist[i].phone %></td>
+			<td><%= userlist[i].email %></td>
+			<td><%= userlist[i].gender%></td>
 			<td><%= userlist[i].username %></td>
 			<td><%= userlist[i].password %></td>
-			<td><%= userlist[i].Utid %></td>
+			<td>Customer</td>
 			<td>
-				<a href="/admin/edit/<%= userlist[i].Eid %>">EDIT</a> | 
-				<a href="/admin/delete/<%= userlist[i].Eid %>">DELETE</a> 
+				<a href="/admin/edit/<%= userlist[i].uid %>">EDIT</a> | 
+				<a href="/admin/delete/<%= userlist[i].uid %>">DELETE</a> 
 			</td>
 		</tr>
 	<%  } %>

@@ -1,9 +1,9 @@
 var db = require('./db');
 
 module.exports= {
-	getById : function(id, callback){
-		var sql = "select * from users where id=?";
-		db.getResults(sql, [id], function(results){
+	getById : function(uid, callback){
+		var sql = "select * from users where uid=?";
+		db.getResults(sql, [uid], function(results){
 			if(results.length > 0){
 				callback(results[0]);
 			}else{
@@ -21,12 +21,24 @@ module.exports= {
 			}
 		});
 	},
+	getAllproduct : function(callback){
+		var sql = "select * from product";
+		db.getResults(sql,function(results){
+			if(results.length > 0){
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	validate: function(user, callback){
 		var sql ="SELECT * FROM users where username=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(results){
 
 			if(results.length > 0){
-				callback(results);
+				console.log(results[0].utid);
+				
+				callback(results[0]);
 			}else{
 				callback(null);
 			}
@@ -34,6 +46,16 @@ module.exports= {
 	},
 	getBypname: function(username, callback){
 		var sql = "select * from product where pname=?";
+		db.getResults(sql, [username], function(results){
+			if(results.length > 0){
+				callback(results[0]);
+			}else{
+				callback(null);
+			}
+		});
+	},
+	getByUname: function(username, callback){
+		var sql = "select * from users where username=?";
 		db.getResults(sql, [username], function(results){
 			if(results.length > 0){
 				callback(results[0]);

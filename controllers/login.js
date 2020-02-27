@@ -16,6 +16,7 @@ router.post('/', function(req, res){
 	};
 
 	userModel.validate(user, function(results){
+		console.log(''+results.utid);
 	 	if(results.utid==1){
 			res.cookie('username', req.body.uname);
 			res.redirect('/admin');

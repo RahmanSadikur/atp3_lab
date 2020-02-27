@@ -8,26 +8,31 @@
 			<h2>Edit Page</h2> 		
 	</div>
 
-	<a href="/home">Back</a> |
+	<a href="/admin">Back</a> |
 	<a href="/logout">Logout</a><br>
+	
 	
 	<form method="post">
 		<table>
 			<tr>
 				<td>ID: </td>
-				<td><input type="text" readonly name="Eid" value="<%= user.id %>"></td>
+				<td><input type="text" readonly name="uid" value="<%= user.uid %>"></td>
 			</tr>
 			<tr>
-				<td>Employee name: </td>
-				<td><input type="text" name="Ename" value="<%= user.Ename %>"></td>
+				<td>Name: </td>
+				<td><input type="text" name="name" value="<%= user.name %>"></td>
 			</tr>
 			<tr>
-				<td>Company name: </td>
-				<td><input type="text" name="Cname" value="<%= user.Cname %>"></td>
+				<td>Phone: </td>
+				<td><input type="text" name="phone" value="<%= user.phone %>"></td>
 			</tr>
 			<tr>
-				<td>Contract name: </td>
-				<td><input type="text" name="Ename" value="<%= user.ContactNo %>"></td>
+				<td>Email: </td>
+				<td><input type="text" name="email" value="<%= user.email %>"></td>
+			</tr>
+			<tr>
+				<td>Gender: </td>
+				<td><input type="text" name="gender" value="<%= user.gender %>"></td>
 			</tr>
 			<tr>
 				<td>Username: </td>
@@ -39,11 +44,7 @@
 			</tr>
 			<tr>
 				<td>Type: </td>
-				<td><input type="text" name="utid" value="<%= user.Utid %>"></td>
-				<tr>
-				<td>job: </td>
-				<td><input type="text" name="jid" value="user.jid"></td>
-			</tr>
+				<td><input type="text" name="utid" value="<%= user.utid %>"></td>
 			</tr>
 			<tr>
 				<td></td>
