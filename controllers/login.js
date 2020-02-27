@@ -21,10 +21,10 @@ router.post('/', function(req, res){
 			res.cookie('username', req.body.uname);
 			res.redirect('/admin');
 		 }
-			else if(results.utid==1)
+			else if(results.utid==2)
 			{
 				res.cookie('username', req.body.uname);
-				res.cookie('username',results.utid);
+				res.cookie('usertype',results.utid);
 			res.redirect('/customer');
 			}
 			else{
