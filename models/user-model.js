@@ -11,6 +11,17 @@ module.exports= {
 			}
 		});
 	},
+
+	getproductById : function(uid, callback){
+		var sql = "select * from product where pid=?";
+		db.getResults(sql, [uid], function(results){
+			if(results.length > 0){
+				callback(results[0]);
+			}else{
+				callback(null);
+			}
+		});
+	},
 	getAll : function(callback){
 		var sql = "select * from users where utid=?";
 		db.getResults(sql,[2], function(results){
@@ -22,8 +33,9 @@ module.exports= {
 		});
 	},
 	getAllproduct : function(callback){
-		var sql = "select * from product";
-		db.getResults(sql,function(results){
+		var sql = "SELECT * FROM `product` where pid=?";
+		db.getResults(sql,[1],function(results){
+			
 			if(results.length > 0){
 				callback(results);
 			}else{

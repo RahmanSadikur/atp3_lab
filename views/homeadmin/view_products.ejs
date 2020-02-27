@@ -25,7 +25,7 @@
 			<td>Catagory</td>
 			<td>Image Src</td>
 		</tr>
-	<% for(var i=0; i < userlist.length; i++){ %>
+	<% for(var i=0; i < productlist.length; i++){ %>
 		<tr>
 			<td><%= productlist[i].pid %></td>
 			<td><%= productlist[i].pname  %></td>
@@ -36,7 +36,7 @@
 			<td><%= productlist[i].catagory  %></td>
 			<td>
 				<a href="/admin/product/edit/<%= productlist[i].pid %>">EDIT</a> | 
-				<a href="/admin/product/delete/<%= userlist[i].pid %>">DELETE</a> 
+				<a href="/admin/product/delete/<%= productlist[i].pid %>">DELETE</a> 
 			</td>
 		</tr>
 	<%  } %>

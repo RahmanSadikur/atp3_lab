@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Update</title>
+</head>
+<body>
+	<div>
+			<h2>Update product</h2> 		
+	</div>
+
+	<a href="/admin">Back</a> |
+	<a href="/logout">Logout</a><br>
+	
+	
+	<form method="post">
+		<table>
+			<tr>
+				<td>PID: </td>
+				<td><input type="text" readonly name="pid" value="<%= product.uid %>"></td>
+			</tr>
+			<tr>
+				<td>Name: </td>
+				<td><input type="text" name="pname" value="<%= product.pname %>"></td>
+			</tr>
+			<tr>
+				<td>size: </td>
+				<td><input type="text" name="psize" value="<%= product.psize %>"></td>
+			</tr>
+			<tr>
+				<td>Quantities: </td>
+				<td><input type="text" name="pquantity" value="<%= product.pquantity %>"></td>
+			</tr>
+			<tr>
+				<td>Image src: </td>
+				<td><input type="text" name="image" value="<%= product.image %>"></td>
+			</tr>
+			<tr>
+				<td>Description: </td>
+				<td><input type="text" name="pdescription" value="<%= product.pdescription %>"></td>
+			</tr>
+			<tr>
+				<td>Price: </td>
+				<td><input type="text" name="price" value="<%= product.price %>"></td>
+			</tr>
+			<tr>
+				<td>Catagory: </td>
+				<td><input type="text" name="catagory" value="<%= product.catagory %>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" name="" value="Update"> 
+				</td>
+			</tr>
+		</table>
+	</form>
+
+
+</body>
+</html>

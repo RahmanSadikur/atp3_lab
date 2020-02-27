@@ -37,6 +37,17 @@ router.get('/view_users', function(req, res){
 		}
 	});
 });
+router.get('/product/edit/:id', function(req, res){
+	userModel.getproductById(req.params.id, function(result){
+		res.render('homeadmin/productedit', {product: result});
+	});
+});
+
+router.get('/product/delete/:id', function(req, res){
+	userModel.delete(req.params.id, function(result){
+		res.render('homeadmin/view_users', {user: result});
+	});
+});
 router.get('/edit/:id', function(req, res){
 	userModel.getById(req.params.id, function(result){
 		res.render('homeadmin/edit', {user: result});
@@ -48,7 +59,6 @@ router.get('/delete/:id', function(req, res){
 		res.render('homeadmin/view_users', {user: result});
 	});
 });
-
 
 router.get('/adduser', function(req, res){
 	
@@ -128,6 +138,28 @@ router.post('/edit/:id', function(req, res){
 				res.redirect('/admin/view_users');
 			}else{
 				res.redirect('/admin/edit/'+req.params.id);
+			}
+		});
+});
+router.post('/product/edit/:id', function(req, res){
+	
+	var product = {
+		pid: req.body.pid,
+		pname: req.body.pname,
+		psize: req.body.psize,
+		pquantity: req.body.pquantity,
+		image: req.body.image,
+		pdescription: req.body.pdescription,
+		price: req.body.price,
+		catagory: req.body.catagory,
+		
+	};
+
+		userModel.updateproduct(product, function(status){
+			if(status){
+				res.redirect('/admin/view_products');
+			}else{
+				res.redirect('/admin/product/edit/'+req.params.id);
 			}
 		});
 });
